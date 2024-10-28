@@ -1,6 +1,7 @@
 class HighlightBar extends HTMLElement {
   connectedCallback() {
     this.render();
+    this.updateLayout();
   }
 
   render() {
@@ -44,7 +45,7 @@ class HighlightBar extends HTMLElement {
         
         .text-highlight h1 {
           font-size: 1.75rem;
-          color: #962824;
+          color: #7895b2;
           margin: 0;
           line-height: 1.3;
           font-weight: 700;
@@ -122,6 +123,22 @@ class HighlightBar extends HTMLElement {
         </div>
       </article>
     `;
+  }
+
+  updateLayout() {
+    // Example: Change layout based on a condition
+    const isWideLayout = window.innerWidth > 1024;
+    const contentHighlight = this.querySelector('.content-highlight');
+
+    if (isWideLayout) {
+      contentHighlight.style.flexDirection = 'row';
+      contentHighlight.style.padding = '4rem 2rem';
+      contentHighlight.style.gap = '4rem';
+    } else {
+      contentHighlight.style.flexDirection = 'column';
+      contentHighlight.style.padding = '2rem 1rem';
+      contentHighlight.style.gap = '2rem';
+    }
   }
 }
 
