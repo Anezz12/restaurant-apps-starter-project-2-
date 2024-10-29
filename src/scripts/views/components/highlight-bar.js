@@ -7,6 +7,10 @@ class HighlightBar extends HTMLElement {
   render() {
     this.innerHTML = `
       <style>
+      .title-top {
+        font-size: 1.5rem;
+        color: #7895b2;
+        }
         .content-highlight {
           display: flex;
           flex-direction: column;
@@ -107,6 +111,7 @@ class HighlightBar extends HTMLElement {
       </style>
       
       <article class="content-highlight">
+      <h1 class="title-top">Makana Favoritr</h1>
         <div class="image-highlight">
           <img src="./heros/hero-image_4.jpg" alt="Harsena Restaurant Food" />
         </div>

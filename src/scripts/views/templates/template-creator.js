@@ -23,7 +23,7 @@ const createRestaurantInfo = ({ name, address, city, rating }) => `
     <h4>City</h4>
     <p>${city}</p>
     <h4>Rating</h4>
-    <p>${rating}</p>
+    <p>${rating}⭐️</p>
   </div>
 `;
 

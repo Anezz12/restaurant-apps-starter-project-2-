@@ -1,0 +1,121 @@
+/* AppBar */
+.app-bar {
+  padding: 8px 16px;
+  background-color: var(--primary-color);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  color: var(--text-light);
+}
+
+.app-bar .app-bar__menu {
+  display: flex;
+  align-items: center;
+  padding-left: 90%;
+}
+
+.app-bar .app-bar__menu button {
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  color: var(--text-light);
+}
+
+.app-bar .app-bar__brand {
+  display: flex;
+  align-items: center;
+}
+
+.app-bar .app-bar__brand h1 {
+  color: var(--text-light);
+  font-size: 22px;
+  user-select: none;
+}
+
+.app-bar .app-bar__navigation {
+  position: absolute;
+  top: 50px;
+  left: -180px;
+  width: 150px;
+  transition: all 0.3s;
+  padding: 8px;
+  background-color: var(--primary-color);
+  overflow: hidden;
+}
+
+.app-bar .app-bar__navigation.open {
+  left: 0;
+}
+
+.app-bar .app-bar__navigation ul li a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 0; /* Remove border radius for a cleaner look */
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-light);
+  transition: border-bottom 0.2s ease-in-out; /* Transition for the underline */
+  min-width: 44px;
+  min-height: 44px;
+  position: relative; /* To position the underline */
+}
+
+.app-bar .app-bar__navigation ul li a:hover {
+  color: var(--accent-color); /* Change text color on hover */
+}
+
+.app-bar .app-bar__navigation ul li a:hover::after {
+  content: '';
+  display: block;
+  height: 2px; /* Height of the underline */
+  background-color: var(--accent-color); /* Color of the underline */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0; /* Positioning the underline at the bottom */
+}
+
+@media screen and (min-width: 650px) {
+  .app-bar {
+    grid-template-columns: 1fr auto;
+    padding: 8px 32px;
+  }
+
+  .app-bar .app-bar__brand h1 {
+    font-size: 1.5em;
+  }
+
+  .app-bar .app-bar__menu {
+    display: none;
+  }
+
+  .app-bar .app-bar__navigation {
+    position: static;
+    width: 100%;
+  }
+
+  .app-bar .app-bar__navigation ul li {
+    display: inline-block;
+  }
+
+  .app-bar .app-bar__navigation ul li a {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .app-bar .app-bar__brand h1 {
+    font-size: 2em;
+  }
+}
