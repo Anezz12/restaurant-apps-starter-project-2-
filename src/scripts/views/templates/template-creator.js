@@ -72,6 +72,7 @@ const createRestaurantItemTemplate = ({
   name,
   pictureId,
   rating,
+  city,
   description,
 }) => `
   <div class="restaurant-item">
@@ -86,7 +87,7 @@ const createRestaurantItemTemplate = ({
       </div>
     </div>
     <div class="restaurant-item__content">
-      <h3><a href="/#/detail/${id}">${name}</a></h3>
+      <h3><a href="/#/detail/${id}">${name}</a> <p>${city}</p></h3>
       <p>${description}</p>
     </div>
   </div>
