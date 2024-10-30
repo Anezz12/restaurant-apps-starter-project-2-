@@ -11,6 +11,7 @@ import '../styles/restaurant.css';
 import '../styles/footer.css';
 import App from './views/app';
 import swRegister from './utils/sw-register';
+import '../styles/spinner.css';
 
 class ApplicationInitializer {
   constructor() {

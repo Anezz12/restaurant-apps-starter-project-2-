@@ -3,19 +3,25 @@ import restaurantSource from '../../data/restaurant-source';
 import { createRestaurantDetailTemplate } from '../templates/template-creator';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
 import PostReview from '../../utils/add-review';
+import { initSwalError, initSwalSuccess } from '../../utils/swal-initiator';
+
+import { sendDataToWebsocket } from '../../utils/websocket-initiator';
 
 const Detail = {
   async render() {
     return `
-    <div id="restaurant" class="restaurant"></div>
-    <div id="customerReviews"></div>
-    <div id="likeButtonContainer"></div>
-    <form id="review-form">
-      <h3>Add Review</h3>
-      <input type="text" id="review-name" placeholder=" Your Name" autocomplete="on" required>
-      <input type="text" id="review-content" placeholder=" Your Review" autocomplete="on" required>
-      <button type="submit class="submit-review" id="submit-review">Send Review</button>
-    </form>
+      <div>
+        <div id="loading"></div>
+        <div id="restaurant" class="restaurant"></div>
+        <div id="customerReviews"></div>
+        <div id="likeButtonContainer"></div>
+        <form id="review-form">
+          <h3>Add Review</h3>
+          <input type="text" id="review-name" placeholder="Your Name" autocomplete="on" required>
+          <input type="text" id="review-content" placeholder="Your Review" autocomplete="on" required>
+          <button type="submit" class="submit-review" id="submit-review">Send Review</button>
+        </form>
+      </div>
     `;
   },
 
@@ -38,9 +44,14 @@ const Detail = {
     });
 
     const submitReview = document.getElementById('submit-review');
-    submitReview.addEventListener('click', (event) => {
+    submitReview.addEventListener('click', async (event) => {
       event.preventDefault();
-      PostReview();
+      try {
+        await PostReview();
+        initSwalSuccess('Review submitted successfully!', 'success');
+      } catch (error) {
+        initSwalError('Error submitting review', 'error');
+      }
     });
   },
 };
