@@ -75,22 +75,25 @@ const createRestaurantItemTemplate = ({
   city,
   description,
 }) => `
-  <div class="restaurant-item">
-    <div class="restaurant-item__header">
-      <img 
-        class="restaurant-item__header__poster" 
-        alt="${name}"
-        src="${CONFIG.BASE_IMAGE_URL + pictureId}"
-      >
-      <div class="restaurant-item__header__rating">
-        <p>⭐️<span class="restaurant-item__header__rating__score">${rating}</span></p>
-      </div>
+ <div class="restaurant-item">
+  <div class="restaurant-item__header">
+    <img
+      class="restaurant-item__header__poster"
+      alt="${name}"
+      src="${CONFIG.BASE_IMAGE_URL + pictureId}"
+    >
+    <div class="restaurant-item__header__rating">
+      <p>⭐️<span class="restaurant-item__header__rating__score">${rating}</span></p>
     </div>
-    <div class="restaurant-item__content">
-      <h3><a href="/#/detail/${id}">${name}</a> <p>${city}</p></h3>
-      <p>${description}</p>
+    <div class="restaurant-item__header__city">
+      <p>${city}</p>
     </div>
   </div>
+  <div class="restaurant-item__content">
+    <h3><a href="/#/detail/${id}">${name}</a></h3>
+    <p>${description}</p>
+  </div>
+</div>
 `;
 
 const createLikeButtonTemplate = () => `

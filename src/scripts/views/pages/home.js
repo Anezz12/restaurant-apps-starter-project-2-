@@ -13,6 +13,7 @@ const Home = {
       <div id="restaurants" class="restaurants">
       </div>
       <feature-dishes></feature-dishes> 
+      <testimonial-section></testimonial-section>
     `;
   },
 
