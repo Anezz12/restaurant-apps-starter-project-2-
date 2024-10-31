@@ -5,8 +5,6 @@ import LikeButtonInitiator from '../../utils/like-button-initiator';
 import PostReview from '../../utils/add-review';
 import { initSwalError, initSwalSuccess } from '../../utils/swal-initiator';
 
-import { sendDataToWebsocket } from '../../utils/websocket-initiator';
-
 const Detail = {
   async render() {
     return `
