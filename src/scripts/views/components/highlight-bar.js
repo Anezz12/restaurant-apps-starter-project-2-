@@ -100,6 +100,7 @@ class HighlightBar extends HTMLElement {
           font-weight: 600;
           transition: transform 0.3s ease, box-shadow 0.3s ease;
           align-self: flex-start;
+          item-align: center;
         }
         
         .highlight-button:hover {

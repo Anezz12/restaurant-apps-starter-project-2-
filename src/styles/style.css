@@ -11,10 +11,14 @@
   --menu-hover: #f8f9fa;
 }
 
-/* Base Styles */
-img {
-  display: block;
-  max-width: 100%;
+/* Base Styles with Overflow Protection */
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+  padding: 0;
+  margin: 0;
 }
 
 * {
@@ -29,15 +33,27 @@ body {
   min-height: 100vh;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 /* Main Content */
 main {
   padding: 32px;
   flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .content {
   margin: 0 auto;
   min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .content .content__heading {
@@ -47,20 +63,25 @@ main {
 /* Restaurant Detail */
 .restaurant {
   margin: 2rem auto;
-  width: 100%;
+  width: calc(100% - 4rem);
   max-width: 1200px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
   padding: 0 2rem;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .restaurant .restaurant__poster {
   width: 100%;
-  max-width: 600px;
+  max-width: 1000px;
   border-radius: 12px;
-  box-shadow: 0 8px 16px var(--shadow-color);
+  /* box-shadow: 0 8px 16px var(--shadow-color); */
   margin: 0 auto;
+  height: auto;
+  object-fit: contain;
+  padding-bottom: 12px;
 }
 
 .restaurant .restaurant__info {
@@ -68,6 +89,10 @@ main {
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 12px var(--shadow-color);
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .restaurant__info h4 {
@@ -85,6 +110,9 @@ main {
   margin-bottom: 1.5rem;
   position: relative;
   padding-bottom: 1rem;
+  width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .restaurant__title::after {
@@ -106,6 +134,8 @@ main {
   margin: 2rem 0 1rem;
   padding-left: 1rem;
   border-left: 4px solid var(--primary-color);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 /* Enhanced Menu Styles */
@@ -114,6 +144,9 @@ main {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1.5rem;
   padding: 1rem 0;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .menus li {
@@ -130,6 +163,8 @@ main {
   transition: all 0.3s ease;
   color: var(--text-primary);
   border: 1px solid var(--secondary-color);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .menus li:hover {
@@ -145,6 +180,10 @@ main {
   border-radius: 12px;
   box-shadow: 0 4px 12px var(--shadow-color);
   margin-top: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .review {
@@ -153,6 +192,10 @@ main {
   margin: 1rem 0;
   border-radius: 8px;
   transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .review:hover {
@@ -163,6 +206,8 @@ main {
 .review-label {
   padding-top: 2em;
   font-size: 1.2em;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .name-review {
@@ -170,6 +215,8 @@ main {
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .date-review {
@@ -182,6 +229,8 @@ main {
   font-size: 1em;
   line-height: 1.6;
   color: var(--text-primary);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 /* Enhanced Review Form */
@@ -194,6 +243,7 @@ main {
   max-width: 600px;
   margin: 2rem auto;
   border: none;
+  box-sizing: border-box;
 }
 
 #review-form h3 {
@@ -202,6 +252,8 @@ main {
   margin-bottom: 1.5rem;
   text-align: center;
   font-weight: 600;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 #review-form input[type='text'],
@@ -215,6 +267,7 @@ main {
   margin-bottom: 1rem;
   min-width: 44px;
   min-height: 44px;
+  box-sizing: border-box;
 }
 
 #review-form input[type='text']:focus,
@@ -237,6 +290,7 @@ main {
   width: 100%;
   min-width: 44px;
   min-height: 44px;
+  box-sizing: border-box;
 }
 
 #review-form button:hover {
@@ -268,11 +322,14 @@ main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 
 @media screen and (max-width: 650px) {
   .restaurant {
+    width: calc(100% - 2rem);
     padding: 0 1rem;
   }
 
@@ -314,6 +371,13 @@ main {
 @media screen and (max-width: 480px) {
   main {
     padding: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .restaurant {
+    width: 100%;
+    padding: 0 0.5rem;
   }
 
   .restaurant .restaurant__poster {

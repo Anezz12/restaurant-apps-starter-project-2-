@@ -1,9 +1,9 @@
 /* Explore */
 .explore {
   text-align: center;
-  font-weight: 800;
-  font-size: 2rem;
-  line-height: 8rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 6rem;
   padding-top: 3em;
   color: var(--primary-color);
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.15);
