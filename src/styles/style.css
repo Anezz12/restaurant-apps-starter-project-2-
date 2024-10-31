@@ -77,7 +77,6 @@ main {
   width: 100%;
   max-width: 1000px;
   border-radius: 12px;
-  /* box-shadow: 0 8px 16px var(--shadow-color); */
   margin: 0 auto;
   height: auto;
   object-fit: contain;
@@ -182,55 +181,63 @@ main {
   margin-top: 2rem;
   width: 100%;
   box-sizing: border-box;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
 }
 
+/* Review Grid Container */
+.review-boxs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+  list-style: none;
+  margin: 0;
+}
+
+/* Individual Review Card */
 .review {
   background-color: var(--dark-accent);
-  padding: 1.5rem;
-  margin: 1rem 0;
+  padding: 1.25rem;
   border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 0.5rem;
+  margin: 0;
   width: 100%;
-  box-sizing: border-box;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
 }
 
 .review:hover {
-  transform: translateX(5px);
-  box-shadow: 0 2px 8px var(--shadow-color);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px var(--shadow-color);
 }
 
 .review-label {
-  padding-top: 2em;
-  font-size: 1.2em;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 4px solid var(--primary-color);
 }
 
 .name-review {
-  font-size: 1.1em;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 0.5rem;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+  margin: 0;
 }
 
 .date-review {
-  font-size: 0.85em;
+  font-size: 0.85rem;
   color: #6c757d;
-  margin-bottom: 1rem;
+  margin: 0;
 }
 
 .description-review {
-  font-size: 1em;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.5;
   color: var(--text-primary);
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+  margin: 0;
 }
 
 /* Enhanced Review Form */
@@ -327,6 +334,22 @@ main {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .review-boxs {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .review {
+    padding: 1rem;
+  }
+
+  .review-label {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+}
+
 @media screen and (max-width: 650px) {
   .restaurant {
     width: calc(100% - 2rem);
@@ -391,6 +414,26 @@ main {
   .menus li {
     padding: 0.6rem;
     font-size: 0.85rem;
+  }
+
+  .review-boxs {
+    grid-template-columns: 1fr;
+  }
+
+  .review {
+    padding: 0.875rem;
+  }
+
+  .name-review {
+    font-size: 0.95rem;
+  }
+
+  .date-review {
+    font-size: 0.8rem;
+  }
+
+  .description-review {
+    font-size: 0.9rem;
   }
 
   #review-form input[type='text'],
