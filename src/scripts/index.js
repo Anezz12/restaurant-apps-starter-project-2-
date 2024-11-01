@@ -2,7 +2,6 @@ import 'regenerator-runtime';
 import './views/components/hero-bar';
 import './views/components/highlight-bar';
 import './views/components/feature-dishes';
-import './views/components/testimonial-section';
 import '../styles/style.css';
 import '../styles/responsive.css';
 import '../styles/skip-link.css';

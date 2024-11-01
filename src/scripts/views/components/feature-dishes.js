@@ -26,7 +26,6 @@ class FeatureDishes extends HTMLElement {
       <style>
         .featured-section {
           padding: 6rem 2rem;
-          background: linear-gradient(to bottom, #fff, #f8f9fa);
         }
 
         .section-header {
