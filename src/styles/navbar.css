@@ -58,14 +58,14 @@
   display: inline-block;
   text-decoration: none;
   padding: 0.5rem;
-  border-radius: 0; /* Remove border radius for a cleaner look */
+  border-radius: 0;
   font-size: 1rem;
   font-weight: 600;
   color: var(--text-light);
-  transition: border-bottom 0.2s ease-in-out; /* Transition for the underline */
+  transition: border-bottom 0.2s ease-in-out;
   min-width: 44px;
   min-height: 44px;
-  position: relative; /* To position the underline */
+  position: relative;
 }
 
 .app-bar .app-bar__navigation ul li a:hover {
