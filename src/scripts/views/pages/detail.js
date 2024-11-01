@@ -48,7 +48,7 @@ const Detail = {
         await PostReview();
         initSwalSuccess('Review submitted successfully!', 'success');
       } catch (error) {
-        initSwalError('Error submitting review', 'error');
+        initSwalError('Error submitting review', error);
       }
     });
   },
