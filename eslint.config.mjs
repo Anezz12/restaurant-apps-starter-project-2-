@@ -14,9 +14,6 @@ export default [
         __filename: true,
       },
       sourceType: 'module',
-      env: {
-        node: true,
-      },
     },
   },
   pluginJs.configs.recommended,
