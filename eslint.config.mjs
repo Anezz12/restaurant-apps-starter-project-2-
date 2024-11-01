@@ -12,6 +12,7 @@ export default [
       'space-infix-ops': ['error'],
       'brace-style': ['error', '1tbs'],
       'space-before-blocks': ['error', 'always'],
+      'linebreak-style': ['error', 'unix'],
     },
   },
 ];
