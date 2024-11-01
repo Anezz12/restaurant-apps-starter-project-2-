@@ -52,6 +52,8 @@
 
 .restaurant-item .restaurant-item__header .restaurant-item__header__rating {
   position: absolute;
+  min-width: 44px;
+  min-height: 44px;
   padding: 8px;
   top: 15px;
   right: 15px;
@@ -60,10 +62,15 @@
   color: var(--text-light);
   font-weight: 600;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .restaurant-item .restaurant-item__header .restaurant-item__header__city {
   position: absolute;
+  min-width: 44px;
+  min-height: 44px;
   padding: 8px;
   top: 15px;
   left: 15px;
@@ -72,6 +79,9 @@
   color: var(--text-light);
   font-weight: 600;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .restaurant-item
@@ -100,8 +110,14 @@
 .restaurant-item .restaurant-item__content h3 a {
   color: var(--text-primary);
   text-decoration: none;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: color 0.3s ease;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 8px;
+  box-sizing: border-box;
 }
 
 .restaurant-item .restaurant-item__content h3 a:hover {
