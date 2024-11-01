@@ -16,15 +16,23 @@ const createReviewItem = ({ name, date, review }) => `
 // Helper to create restaurant info section
 const createRestaurantInfo = ({ name, address, city, rating }) => `
   <div class="restaurant__info">
+  <div>
     <h4>Restaurant</h4>
-    <p>${name}</p>
+     <p>${name}</p>
+  </div>
+  <div>
     <h4>Address</h4>
     <p>${address}</p>
+  </div>
+  <div>
     <h4>City</h4>
     <p>${city}</p>
-    <h4>Rating</h4>
-    <p>${rating}⭐️</p>
   </div>
+  <div>
+    <h4>Rating</h4>
+   <p>${rating}⭐️</p>
+  </div>
+</div>
 `;
 
 // Helper to create menu section
