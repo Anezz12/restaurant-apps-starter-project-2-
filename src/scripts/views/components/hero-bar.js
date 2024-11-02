@@ -28,9 +28,11 @@ class HeroBar extends HTMLElement {
         .hero {
           position: relative;
           min-height: 85vh;
-          width: 100%;
-          overflow: hidden;
+          width: 100vw;
+          margin-left: calc(-50vw + 50%);
+          margin-right: calc(-50vw + 50%);
           background-color: #000;
+          overflow: hidden;
         }
 
         .parallax-bg {
@@ -48,6 +50,7 @@ class HeroBar extends HTMLElement {
           background-size: cover;
           background-repeat: no-repeat;
           transform-origin: center;
+          will-change: transform;
           transition: transform 0.5s ease-out;
         }
 
@@ -61,6 +64,8 @@ class HeroBar extends HTMLElement {
           padding: 2rem;
           color: white;
           text-align: center;
+          max-width: 1200px;
+          margin: 0 auto;
         }
 
         .hero_title {
@@ -169,50 +174,25 @@ class HeroBar extends HTMLElement {
         }
 
         @keyframes scrollBounce {
-          0% {
-            transform: rotate(45deg) translate(0, 0);
-          }
-          50% {
-            transform: rotate(45deg) translate(10px, 10px);
-          }
-          100% {
-            transform: rotate(45deg) translate(0, 0);
-          }
+          0% { transform: rotate(45deg) translate(0, 0); }
+          50% { transform: rotate(45deg) translate(10px, 10px); }
+          100% { transform: rotate(45deg) translate(0, 0); }
         }
 
         @media screen and (min-width: 768px) {
-          .hero_title {
-            font-size: 3.5em;
-          }
-
-          .hero_tagline {
-            font-size: 1.3em;
-          }
+          .hero_title { font-size: 3.5em; }
+          .hero_tagline { font-size: 1.3em; }
         }
 
         @media screen and (min-width: 1024px) {
-          .hero_title {
-            font-size: 4.2em;
-          }
-
-          .hero_tagline {
-            font-size: 1.4em;
-          }
-
-          .cta-button {
-            font-size: 1.2em;
-          }
+          .hero_title { font-size: 4.2em; }
+          .hero_tagline { font-size: 1.4em; }
+          .cta-button { font-size: 1.2em; }
         }
 
         @media (max-width: 767px) {
-          .hero_title {
-            font-size: 2em;
-          }
-
-          .hero_tagline {
-            font-size: 1.1em;
-          }
-
+          .hero_title { font-size: 2em; }
+          .hero_tagline { font-size: 1.1em; }
           .cta-button {
             padding: 0.8rem 2rem;
             font-size: 1em;
