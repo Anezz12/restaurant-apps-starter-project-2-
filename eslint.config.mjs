@@ -18,8 +18,10 @@ export default [
   },
   pluginJs.configs.recommended,
   daStyle,
-
   {
+    env: {
+      jest: true,
+    },
     rules: {
       'space-infix-ops': ['error'],
       'brace-style': ['error', '1tbs'],
