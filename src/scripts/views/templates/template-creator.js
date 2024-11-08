@@ -86,7 +86,7 @@ const createRestaurantItemTemplate = ({
  <div class="restaurant-item">
   <div class="restaurant-item__header">
     <img
-      class="restaurant-item__header__poster"
+      class="restaurant-item__header__poster lazyload"
       alt="${name}"
       src="${CONFIG.BASE_IMAGE_URL + pictureId}"
     >
@@ -98,7 +98,7 @@ const createRestaurantItemTemplate = ({
     </div>
   </div>
   <div class="restaurant-item__content">
-    <h3><a href="/#/detail/${id}">${name}</a></h3>
+    <h3 id=restaurant_title><a href="/#/detail/${id}">${name}</a></h3>
     <p>${description}</p>
   </div>
 </div>

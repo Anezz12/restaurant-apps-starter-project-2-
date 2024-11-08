@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
+const ImageminMozjpeg = require('imagemin-mozjpeg');
 
 module.exports = {
   entry: {
@@ -39,6 +41,32 @@ module.exports = {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/'),
         },
+      ],
+    }),
+    new ImageminWebpackPlugin({
+      apply: (compiler) => {
+        compiler.hooks.compilation.tap(
+          'ImageminWebpackPlugin',
+          (compilation) => {
+            compilation.hooks.processAssets.tap(
+              {
+                name: 'ImageminWebpackPlugin',
+                stage: webpack.Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_SIZE,
+              },
+              (assets) => {
+                // Modifikasi aset di sini
+                // ...
+                return assets;
+              }
+            );
+          }
+        );
+      },
+      plugins: [
+        ImageminMozjpeg({
+          quality: 50,
+          progressive: true,
+        }),
       ],
     }),
   ],

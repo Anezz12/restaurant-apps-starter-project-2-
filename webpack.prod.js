@@ -1,6 +1,8 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
+const ImageminMozjpeg = require('imagemin-mozjpeg');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -22,6 +24,30 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
+    new ImageminWebpackPlugin({
+      apply: (compiler) => {
+        compiler.hooks.compilation.tap(
+          'ImageminWebpackPlugin',
+          (compilation) => {
+            compilation.hooks.processAssets.tap(
+              {
+                name: 'ImageminWebpackPlugin',
+                stage: webpack.Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_SIZE,
+              },
+              (assets) => {
+                return assets;
+              }
+            );
+          }
+        );
+      },
+      plugins: [
+        ImageminMozjpeg({
+          quality: 50,
+          progressive: true,
+        }),
+      ],
+    }),
     new WorkboxWebpackPlugin.GenerateSW({
       swDest: './sw.bundle.js',
       runtimeCaching: [

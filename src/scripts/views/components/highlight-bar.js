@@ -150,7 +150,11 @@ class HighlightBar extends HTMLElement {
       
       <article class="content-highlight">
         <div class="image-highlight">
+         <picture>
+         <source media="(max-width: 600px)" srcset="./heros/hero-image_4-large.jpg">
           <img src="./heros/hero-image_4.jpg" alt="Harsena Restaurant Food" />
+          class="lazyload"
+          </picture>
         </div>
         <div class="text-highlight">
           <h1>Discover Culinary Excellence at Harsena</h1>

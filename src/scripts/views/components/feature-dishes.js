@@ -210,12 +210,14 @@ class FeatureDishes extends HTMLElement {
 
         <div class="dishes-container">
           ${this.featuredDishes
-    .map(
-      (dish) => `
+            .map(
+              (dish) => `
             <article class="dish-card" role="article">
               ${dish.badge ? `<span class="badge">${dish.badge}</span>` : ''}
               <div class="dish-image-container">
-                <img src="${dish.image}" alt="${dish.name}" class="dish-image">
+                <img src="${dish.image}" alt="${
+                dish.name
+              }" class="dish-image" class="lazyload">
               </div>
               <div class="dish-info">
                 <span class="dish-price">${dish.price}</span>
@@ -231,8 +233,8 @@ class FeatureDishes extends HTMLElement {
               </div>
             </article>
           `
-    )
-    .join('')}
+            )
+            .join('')}
         </div>
       </section>
     `;

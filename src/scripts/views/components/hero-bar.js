@@ -41,17 +41,29 @@ class HeroBar extends HTMLElement {
           left: 0;
           width: 100%;
           height: 100%;
-          background-image: linear-gradient(
-            rgba(0, 0, 0, 0.3),
-            rgba(0, 0, 0, 0.4)
-          ),
-          url("./heros/hero-image_1.jpg");
-          background-position: center;
-          background-size: cover;
-          background-repeat: no-repeat;
           transform-origin: center;
           will-change: transform;
           transition: transform 0.5s ease-out;
+        }
+
+        .parallax-bg::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.4)
+          );
+        }
+
+        .parallax-bg img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
         }
 
         .hero_content {
@@ -201,7 +213,13 @@ class HeroBar extends HTMLElement {
       </style>
 
       <div class="hero">
-        <div class="parallax-bg"></div>
+        <div class="parallax-bg">
+          <picture>
+          <source media="(max-width: 600px)" srcset="./heros/hero-image_1-large.jpg">
+          <img src="./heros/hero-image_1.jpg"       alt="Fine dining ambiance">
+          class="lazyload"
+          </picture>
+        </div>
         <div class="hero_content">
           <h1 class="hero_title">Discover the Art of Fine Dining</h1>
           <p class="hero_tagline">
