@@ -11,6 +11,8 @@ import '../styles/footer.css';
 import App from './views/app';
 import swRegister from './utils/sw-register';
 import '../styles/spinner.css';
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 class ApplicationInitializer {
   constructor() {
