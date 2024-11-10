@@ -216,8 +216,7 @@ class HeroBar extends HTMLElement {
         <div class="parallax-bg">
           <picture>
           <source media="(max-width: 600px)" srcset="./heros/hero-image_1-large.jpg">
-          <img src="./heros/hero-image_1.jpg"       alt="Fine dining ambiance">
-          class="lazyload"
+          <img src="./heros/hero-image_1.jpg" alt="Fine dining ambiance" class="lazy">
           </picture>
         </div>
         <div class="hero_content">
