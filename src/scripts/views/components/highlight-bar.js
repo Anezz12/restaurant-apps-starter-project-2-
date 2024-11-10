@@ -151,7 +151,7 @@ class HighlightBar extends HTMLElement {
       <article class="content-highlight">
         <div class="image-highlight">
          <picture>
-         <source media="(max-width: 600px)" srcset="./heros/hero-image_4-large.jpg">
+         <source media="(max-width: 600px)" srcset="./heros/hero-image_2-large.jpg">
           <img src="./heros/hero-image_2.jpg" alt="Harsena Restaurant Food"  class="lazy"/>
           </picture>
         </div>
