@@ -1,47 +1,56 @@
 import { itActsAsFavoriteRestaurantModel } from './contract/favoriteRestaurantContact';
 
-let favoriteRestaurants = [];
+// Menyimpan daftar restaurant favorit
+let restaurantList = [];
 
+// Object untuk mengelola daftar restaurant favorit
 const FavoriteRestaurantArray = {
+  // Mencari restaurant berdasarkan ID
   getRestaurant(id) {
+    // Validasi: jika id kosong, langsung return undefined
     if (!id) {
       return;
     }
 
-    return favoriteRestaurants.find((restaurant) => restaurant.id == id);
+    // Mencari dan mengembalikan restaurant yang memiliki id yang sesuai
+    return restaurantList.find((restaurant) => restaurant.id == id);
   },
 
+  // Mengambil semua daftar restaurant favorit
   getAllRestaurants() {
-    return favoriteRestaurants;
+    return restaurantList;
   },
 
+  // Menambahkan restaurant ke daftar favorit
   putRestaurant(restaurant) {
+    // Validasi: pastikan restaurant memiliki properti id
     // eslint-disable-next-line no-prototype-builtins
     if (!restaurant.hasOwnProperty('id')) {
       return;
     }
 
-    // pastikan id ini belum ada dalam daftar favoriterestaurants
+    // Validasi: pastikan restaurant dengan id tersebut belum ada dalam daftar
     if (this.getRestaurant(restaurant.id)) {
       return;
     }
 
-    favoriteRestaurants.push(restaurant);
+    // Menambahkan restaurant ke dalam daftar
+    restaurantList.push(restaurant);
   },
 
+  // Menghapus restaurant dari daftar favorit berdasarkan ID
   deleteRestaurant(id) {
-    // cara boros menghapus film dengan meng-copy film yang ada
-    // kecuali film dengan id == id
-    favoriteRestaurants = favoriteRestaurants.filter(
-      (restaurant) => restaurant.id != id
-    );
+    // Filter out restaurant dengan id yang sesuai
+    restaurantList = restaurantList.filter((restaurant) => restaurant.id != id);
   },
 };
 
 describe('Favorite Restaurant Array Contract Test Implementation', () => {
+  // Membersihkan daftar restaurant setelah setiap test
   afterEach(() => {
-    favoriteRestaurants = [];
+    restaurantList = [];
   });
 
+  // Menjalankan test sesuai kontrak yang telah ditentukan
   itActsAsFavoriteRestaurantModel(FavoriteRestaurantArray);
 });
