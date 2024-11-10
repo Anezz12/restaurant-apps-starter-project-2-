@@ -75,33 +75,33 @@ const createRestaurantDetailTemplate = (restaurant) => `
   </div>
 `;
 
-const createRestaurantItemTemplate = ({
-  id,
-  name,
-  pictureId,
-  rating,
-  city,
-  description,
-}) => `
- <div class="restaurant-item">
-  <div class="restaurant-item__header">
-    <img
-      class="restaurant-item__header__poster lazyload"
-      alt="${name}"
-      src="${CONFIG.BASE_IMAGE_URL + pictureId}"
-    >
-    <div class="restaurant-item__header__rating">
-      <p>⭐️<span class="restaurant-item__header__rating__score">${rating}</span></p>
+const createRestaurantItemTemplate = (restaurant) => `
+  <div class="restaurant-item">
+    <div class="restaurant-item__header">
+      <picture>
+        <source data-srcset="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}">
+        <img
+          class="restaurant-item__header__poster lazyload"
+          data-src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}"
+          alt="${restaurant.name}"
+        >
+      </picture>
+      <div class="restaurant-item__header__rating">
+        <p>⭐️<span class="restaurant-item__header__rating__score">${
+          restaurant.rating
+        }</span></p>
+      </div>
+      <div class="restaurant-item__header__city">
+        <p>${restaurant.city}</p>
+      </div>
     </div>
-    <div class="restaurant-item__header__city">
-      <p>${city}</p>
+    <div class="restaurant-item__content">
+      <h3 class="restaurant_title">
+        <a href="/#/detail/${restaurant.id}">${restaurant.name}</a>
+      </h3>
+      <p>${restaurant.description}</p>
     </div>
   </div>
-  <div class="restaurant-item__content">
-    <h3 id=restaurant_title><a href="/#/detail/${id}">${name}</a></h3>
-    <p>${description}</p>
-  </div>
-</div>
 `;
 
 const createLikeButtonTemplate = () => `

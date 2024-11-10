@@ -215,9 +215,12 @@ class FeatureDishes extends HTMLElement {
             <article class="dish-card" role="article">
               ${dish.badge ? `<span class="badge">${dish.badge}</span>` : ''}
               <div class="dish-image-container">
+               <picture>
+                <source media="(max-width: 600px)" srcset="${dish.image}">
                 <img src="${dish.image}" alt="${
                 dish.name
-              }" class="dish-image" class="lazyload">
+              }" class="dish-image" class="lazy">
+               </picture>
               </div>
               <div class="dish-info">
                 <span class="dish-price">${dish.price}</span>
