@@ -8,6 +8,7 @@ import '../styles/skip-link.css';
 import '../styles/navbar.css';
 import '../styles/restaurant.css';
 import '../styles/footer.css';
+import '../styles/skeleton.css';
 import App from './views/app';
 import swRegister from './utils/sw-register';
 import '../styles/spinner.css';
