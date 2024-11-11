@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import CONFIG from '../../globals/config';
 
 // Helper function to create list items from array

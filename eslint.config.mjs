@@ -8,6 +8,16 @@ export default [
       globals: {
         ...globals.browser,
         ...globals.node,
+        ...globals.jest,
+        Feature: 'readonly',
+        Before: 'readonly',
+        After: 'readonly',
+        Scenario: 'readonly',
+        locate: 'readonly',
+        within: 'readonly',
+        session: 'readonly',
+        DataTable: 'readonly',
+        xScenario: 'readonly',
         module: true,
         require: true,
         __dirname: true,
@@ -19,9 +29,6 @@ export default [
   pluginJs.configs.recommended,
   daStyle,
   {
-    env: {
-      jest: true,
-    },
     rules: {
       'space-infix-ops': ['error'],
       'brace-style': ['error', '1tbs'],

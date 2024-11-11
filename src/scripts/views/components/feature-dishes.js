@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 class FeatureDishes extends HTMLElement {
   connectedCallback() {
     this.render();
@@ -153,7 +154,9 @@ class FeatureDishes extends HTMLElement {
         }
 
         .order-button {
-          padding: 0.5rem 1.5rem;
+          min-width: 44px;
+          min-height: 44px;
+          padding: 0.8rem 1.5rem;
           background: linear-gradient(135deg, #de9d7e, #d17f66);
           color: white;
           border: none;
@@ -161,6 +164,9 @@ class FeatureDishes extends HTMLElement {
           font-weight: 600;
           cursor: pointer;
           transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .order-button:hover {
