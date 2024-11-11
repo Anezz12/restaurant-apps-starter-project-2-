@@ -22,6 +22,7 @@ export default [
         require: true,
         __dirname: true,
         __filename: true,
+        webpack: true,
       },
       sourceType: 'module',
     },
