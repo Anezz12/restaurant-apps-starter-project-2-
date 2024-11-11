@@ -6,6 +6,7 @@ const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   entry: {
@@ -21,7 +22,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader, // Mengganti style-loader
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -149,6 +150,11 @@ module.exports = {
           progressive: true,
         }),
       ],
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'server',
+      analyzerPort: 8888,
+      openAnalyzer: true,
     }),
   ],
 };
